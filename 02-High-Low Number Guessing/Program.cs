@@ -8,6 +8,7 @@ class Program
         int minRandomNumber = 1;
         int maxRandomNumber = 100;
         int randomNumber = rnd.Next(minRandomNumber, maxRandomNumber);
+        Console.WriteLine($"Random number: {randomNumber}");
         
         
         
@@ -33,9 +34,9 @@ class Program
                 return;
             }
 
-            if (guessedNumber + 5 == randomNumber || guessedNumber - 5 == randomNumber)
+            if ((Math.Abs(randomNumber - guessedNumber)) <= 5)
             {
-                Console.WriteLine("You're close!");
+                Console.WriteLine("But you're close!");
             }
             guessedNumber = int.Parse(Console.ReadLine());
             tries++;
