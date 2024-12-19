@@ -4,9 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        Random rnd = new Random();
+        
         const int MIN_RANDOM_NUMBER = 1;
         const int MAX_RANDOM_NUMBER = 100;
+        const int MAX_TRIES = 10;
+        const int DISTANCE_TO_GUESSED_NUMBER = 5;
+        
+        Random rnd = new Random();
         int randomNumber = rnd.Next(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         Console.WriteLine($"Random number: {randomNumber}");
         
@@ -25,14 +29,14 @@ class Program
                 Console.WriteLine("Too high, try again!");
             }
 
-            const int MAX_TRIES = 10;
+            
             if (tries > MAX_TRIES)
             {
                 Console.WriteLine("Sorry, you had too many tries");
                 return;
             }
 
-            const int DISTANCE_TO_GUESSED_NUMBER = 5;
+            
             if ((Math.Abs(randomNumber - guessedNumber)) <= DISTANCE_TO_GUESSED_NUMBER)
             {
                 Console.WriteLine("But you're close!");
