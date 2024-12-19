@@ -5,7 +5,11 @@ class Program
     static void Main(string[] args)
     {
         Random rnd = new Random();
-        int randomNumber = rnd.Next(1, 100);
+        int minRandomNumber = 1;
+        int maxRandomNumber = 100;
+        int randomNumber = rnd.Next(minRandomNumber, maxRandomNumber);
+        
+        
         
         Console.WriteLine("Hi, let's play a game! Can you guess the number between 1 and 100?");
         int guessedNumber = int.Parse(Console.ReadLine());
@@ -22,7 +26,8 @@ class Program
                 Console.WriteLine("Too high, try again!");
             }
 
-            if (tries > 10)
+            int maxTries = 10;
+            if (tries > maxTries)
             {
                 Console.WriteLine("Sorry, you had too many tries");
                 return;
